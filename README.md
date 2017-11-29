@@ -16,3 +16,5 @@ npm start
 Usage:
 When using the app, click on a post title to access controls and to be able to read the body and comments.
 https://github.com/thiengy/react-readable/blob/master/public/functionalityPostDetails.gif
+
+![Alt text](/public/functionalityPostDetails.gif?raw=true "Optional Title")
