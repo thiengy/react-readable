@@ -39,8 +39,8 @@ class PostDetail extends Component {
       id: uuidv1(),
       parentId: this.props.post.id,
       timestamp: Date.now(),
-      body: this.state.body,
-      author: this.state.author,
+      body: this.state.commentBody,
+      author: this.state.commentAuthor,
       voteScore: 0,
       deleted: false,
       parentDeleted: false
@@ -98,7 +98,7 @@ class PostDetail extends Component {
   render(){
     const { post, comments } = this.props
     if(!post) {
-      return <div/>
+      return <div>404 Post Not Found</div>
     }
     return(
       <div key={post.id} className='Posts' >
@@ -165,10 +165,10 @@ class PostDetail extends Component {
           <h3>Add New Comment:</h3>
           <form onSubmit={this.submitComment}>
           <div>
-            Username: <input required type="text" name="author" value={this.state.author} onChange={this.formInput}></input>
+            Username: <input required type="text" name="commentAuthor" value={this.state.commentAuthor} onChange={this.formInput}></input>
           </div>
           <div>
-            Body: <input required type="text" name="body" value={this.state.body} onChange={this.formInput}></input>
+            Body: <input required type="text" name="commentBody" value={this.state.commentBody} onChange={this.formInput}></input>
           </div>
           <div>
             <input type="submit" value="Submit"/>

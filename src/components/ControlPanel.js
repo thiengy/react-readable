@@ -33,14 +33,12 @@ class ControlPanel extends Component {
         </div>
           <div className="Header-control">
             Categories:
-            <select>
-              <option key={'all'} onClick={(click) => this.props.selectCategory('all')} >all</option>
-              {this.props.categories.map((category) => (
-                <option key={category} onClick={(click) => this.props.selectCategory(category)} >{category}</option>
-              ))}
-            </select>
+            <Link to={'/'} >All </Link>
+            <Link style={{margin: 5}} to={'/react'} > React </Link>
+            <Link style={{margin: 5}} to={'/redux'} > Redux </Link>
+            <Link style={{margin: 5}} to={'/udacity'} > Udacity </Link>
             <div>
-              <Link to={'/new-post'} >New Post </Link>
+              <Link to={'/'} >Home </Link><Link style={{margin: 10}} to={'/new-post'} > New Post </Link>
             </div>
           </div>
         </div>
@@ -48,6 +46,16 @@ class ControlPanel extends Component {
     )
   }
 }
+
+            /*
+            <select>
+              <option key={'all'} onClick={(click) => this.props.selectCategory('all')} >all</option>
+              {this.props.categories.map((category) => (
+                <option key={category} onClick={(click) => this.props.selectCategory(category)} >{category}</option>
+              ))}
+            </select>
+            */
+
 
 function mapStateToProps(state) {
   return {

@@ -15,7 +15,8 @@ class App extends Component {
           <Route path='/' component={ControlPanel} />
           <Route exact path='/new-post' component={NewPost} />
           <Route exact path='/' component={Posts} />
-          <Route exact path='/:postId' component={PostDetail} />
+          <Route exact path='/:category' component={Posts} />
+          <Route exact path='/:category/:postId' component={PostDetail} />
         </div>
       </BrowserRouter>
     )
