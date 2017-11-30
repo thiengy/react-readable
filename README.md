@@ -12,7 +12,3 @@ npm install
 
 npm start
 
-
-Usage:
-When using the app, click on a post title to access controls and to be able to read the body and comments.
-![](/public/functionalityPostDetails.gif?raw=true "Usage Image")
