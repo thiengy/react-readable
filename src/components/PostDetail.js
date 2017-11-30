@@ -14,6 +14,13 @@ import EditComment from './EditComment'
 const uuidv1 = require('uuid/v1')
 
 class PostDetail extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      browserCategory: this.props.match.params.category,
+    }
+  }
+
   state ={
     postTitle: '',
     postBody: '',
@@ -88,6 +95,7 @@ class PostDetail extends Component {
 
   componentDidMount() {
     this.props.getComments(this.props.match.params.postId)
+    .then(() => this.props.location.state && this.props.location.state.renderPostEditor && this.displayPostEditor())
   }
 
   deletePost = id => {
@@ -98,11 +106,12 @@ class PostDetail extends Component {
   render(){
     const { post, comments } = this.props
     if(!post) {
-      return <div>404 Post Not Found</div>
+      return <div><h3>404 Post Not Found</h3></div>
     }
     return(
       <div key={post.id} className='Posts' >
         <div>
+          {console.log(this.props)}
           <p><b><Link to={`/`}>{post.title}</Link></b> <i> Rating: {post.voteScore} Comments: {post.commentCount}</i>
             <button onClick={(click) => this.displayPostEditor()}>Edit</button>
             <button onClick={(click) => this.deletePost(this.props.match.params.postId)}>Delete</button>
